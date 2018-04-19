@@ -23,20 +23,19 @@ function plugin () {
     let character = ''
     let previous = ''
     let preceding = ''
-    let subvalue = ''
-    let index = 1
-    const length = value.length
+    let subvalue = value.substr(2)
+    let index = subvalue.length
     const now = eat.now()
     now.column += 2
     now.offset += 2
 
-    while (++index < length) {
-      character = value.charAt(index)
+    while (--index >= 0) {
+      character = subvalue.charAt(index)
 
       if (
-        character === C_MARK &&
+        preceding === C_MARK &&
         previous === C_MARK &&
-        (!preceding || !whitespace(preceding))
+        (!character || !whitespace(character))
       ) {
 
         /* istanbul ignore if - never used (yet) */
@@ -51,7 +50,7 @@ function plugin () {
         })
       }
 
-      subvalue += previous
+      subvalue = subvalue.slice(0, -1)
       preceding = previous
       previous = character
     }
