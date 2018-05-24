@@ -2,7 +2,7 @@
   "name": "remark-mark",
   "version": "1.0.0",
   "repository": {
-    "url": "https://github.com/zestedesavoir/zmarkdown/tree/master/packages/remark-mark",
+    "url": "https://github.com/notapianokey/zmarkdown/tree/remark-mark/packages/remark-mark",
     "type": "git"
   },
   "author": "Victor Felder <victor@draft.li> (https://draft.li)",

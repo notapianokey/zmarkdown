@@ -41,14 +41,6 @@ Yields:
 
 This plugin is compatible with [rehype][rehype]. `Mark` mdast nodes will become `<mark>contents</mark>`.
 
-## Installation
-
-[npm][npm]:
-
-```bash
-npm install remark-mark
-```
-
 ## Usage
 
 Dependencies:
@@ -89,8 +81,6 @@ unified()
 [license]: https://github.com/zestedesavoir/zmarkdown/blob/master/packages/remark-mark/LICENSE-MIT
 
 [zds]: https://zestedesavoir.com
-
-[npm]: https://www.npmjs.com/package/remark-mark
 
 [mdast]: https://github.com/syntax-tree/mdast/blob/master/readme.md
 
