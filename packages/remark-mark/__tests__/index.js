@@ -22,28 +22,30 @@ const render = text => unified()
   .processSync(text)
 
 const fixture = dedent`
-  Blabla !!ok!! kxcvj !!ok foo!! sdff
+  Blabla ==ok== kxcvj ==ok foo== sdff
 
-  Look !!ok foo!!! straight !!ok foo!!!!! ahead
+  Look ==ok foo=== straight ==ok foo===== ahead
 
-  This !!should 
-  work!! ok.
+  This ==should 
+  work== ok.
 
-  not!! marked!! text!!!
+  not== marked== text===
 
-  sdf !!!! df
+  sdf ==== df
 
-  sfdgs ! ! dfg !! dgsg ! qs
+  sfdgs = = dfg == dgsg = qs
 
-  With two exclamation marks: \!!marked text!! you'll get !!marked text!!.
+  With two equals signs: \==marked text== you'll get ==marked text==.
+
+  ==Example of how \`==\` can be used in a \`powerful\` way==
 
   It parses inline elements inside:
 
-  * !!hell[~~o~~](#he)?!!
+  * ==hell[~~o~~](#he)?==
 
   but not block elements inside:
 
-  * !!hello: [[secret]]?!!
+  * ==hello: [[secret]]?==
 `
 
 

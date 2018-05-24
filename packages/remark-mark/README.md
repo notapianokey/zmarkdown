@@ -8,7 +8,7 @@ If you are using [rehype][rehype], the stringified HTML result will be `<mark>`.
 ## Syntax
 
 ```markdown
-> !!To be, or not to be!!, that is the question
+> ==To be, or not to be==, that is the question
 ```
 
 ## AST (see [mdast][mdast] specification)
@@ -23,7 +23,7 @@ interface Mark <: Parent {
 
 For example, the following markdown:
 
-`!!To be, or not to be!!`
+`==To be, or not to be==`
 
 Yields:
 

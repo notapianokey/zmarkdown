@@ -2,8 +2,8 @@
 
 var whitespace = require('is-whitespace-character');
 
-var C_MARK = '!';
-var DOUBLE = '!!';
+var C_EQUALS = '=';
+var DOUBLE = '==';
 
 function locator(value, fromIndex) {
   var index = value.indexOf(DOUBLE, fromIndex);
@@ -12,7 +12,7 @@ function locator(value, fromIndex) {
 
 function plugin() {
   function inlineTokenizer(eat, value, silent) {
-    if (!this.options.gfm || value.charAt(0) !== C_MARK || value.charAt(1) !== C_MARK || value.startsWith(C_MARK.repeat(4)) || whitespace(value.charAt(2))) {
+    if (!this.options.gfm || value.charAt(0) !== C_EQUALS || value.charAt(1) !== C_EQUALS || value.startsWith(C_EQUALS.repeat(4)) || whitespace(value.charAt(2))) {
       return;
     }
 
@@ -29,13 +29,13 @@ function plugin() {
     while (++index < length) {
       character = value.charAt(index);
 
-      if (character === C_MARK && previous === C_MARK && (!preceding || !whitespace(preceding))) {
+      if (character === C_EQUALS && previous === C_EQUALS && (!preceding || !whitespace(preceding))) {
 
         /* istanbul ignore if - never used (yet) */
         if (silent) return true;
 
         var next = value.charAt(index + 1);
-        if (next !== C_MARK) {
+        if (next !== C_EQUALS) {
 
           return eat(DOUBLE + subvalue + DOUBLE)({
             type: 'mark',
@@ -68,7 +68,7 @@ function plugin() {
   if (Compiler) {
     var visitors = Compiler.prototype.visitors;
     visitors.mark = function (node) {
-      return '!!' + this.all(node).join('') + '!!';
+      return '==' + this.all(node).join('') + '==';
     };
   }
 }

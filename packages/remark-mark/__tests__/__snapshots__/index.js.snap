@@ -2,13 +2,14 @@
 
 exports[`mark 1`] = `
 "<p>Blabla <mark>ok</mark> kxcvj <mark>ok foo</mark> sdff</p>
-<p>Look <mark>ok foo!</mark> straight <mark>ok foo!!!</mark> ahead</p>
+<p>Look <mark>ok foo=</mark> straight <mark>ok foo===</mark> ahead</p>
 <p>This <mark>should
 work</mark> ok.</p>
-<p>not!! marked!! text!!!</p>
-<p>sdf !!!! df</p>
-<p>sfdgs ! ! dfg !! dgsg ! qs</p>
-<p>With two exclamation marks: !!marked text!! you'll get <mark>marked text</mark>.</p>
+<p>not== marked== text===</p>
+<p>sdf ==== df</p>
+<p>sfdgs = = dfg == dgsg = qs</p>
+<p>With two equals signs: \\\\<mark>marked text</mark> you'll get <mark>marked text</mark>.</p>
+<p><mark>Example of how \`</mark><code>can be used in a</code>powerful\` way==</p>
 <p>It parses inline elements inside:</p>
 <ul>
 <li><mark>hell<a href=\\"#he\\"><del>o</del></a>?</mark></li>
@@ -22,18 +23,20 @@ work</mark> ok.</p>
 exports[`to markdown 1`] = `
 "Blabla !!ok!! kxcvj !!ok foo!! sdff
 
-Look !!ok foo!!! straight !!ok foo!!!!! ahead
+Look !!ok foo=!! straight !!ok foo===!! ahead
 
 This !!should 
 work!! ok.
 
-not!! marked!! text!!!
+not== marked== text===
 
-sdf !!!! df
+sdf ==== df
 
-sfdgs ! ! dfg !! dgsg ! qs
+sfdgs = = dfg == dgsg = qs
 
-With two exclamation marks: !!marked text!! you'll get !!marked text!!.
+With two equals signs: \\\\\\\\!!marked text!! you'll get !!marked text!!.
+
+!!Example of how \\\\\`!!\`can be used in a\`powerful\\\\\` way==
 
 It parses inline elements inside:
 

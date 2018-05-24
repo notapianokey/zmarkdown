@@ -1,7 +1,7 @@
 const whitespace = require('is-whitespace-character')
 
-const C_MARK = '!'
-const DOUBLE = '!!'
+const C_EQUALS = '='
+const DOUBLE = '=='
 
 function locator (value, fromIndex) {
   const index = value.indexOf(DOUBLE, fromIndex)
@@ -12,9 +12,9 @@ function plugin () {
   function inlineTokenizer (eat, value, silent) {
     if (
       !this.options.gfm ||
-      value.charAt(0) !== C_MARK ||
-      value.charAt(1) !== C_MARK ||
-      value.startsWith(C_MARK.repeat(4)) ||
+      value.charAt(0) !== C_EQUALS ||
+      value.charAt(1) !== C_EQUALS ||
+      value.startsWith(C_EQUALS.repeat(4)) ||
       whitespace(value.charAt(2))
     ) {
       return
@@ -34,8 +34,8 @@ function plugin () {
       character = value.charAt(index)
 
       if (
-        character === C_MARK &&
-        previous === C_MARK &&
+        character === C_EQUALS &&
+        previous === C_EQUALS &&
         (!preceding || !whitespace(preceding))
       ) {
 
@@ -43,7 +43,7 @@ function plugin () {
         if (silent) return true
 
         const next = value.charAt(index + 1)
-        if (next !== C_MARK) {
+        if (next !== C_EQUALS) {
 
           return eat(DOUBLE + subvalue + DOUBLE)({
             type: 'mark',
@@ -76,7 +76,7 @@ function plugin () {
   if (Compiler) {
     const visitors = Compiler.prototype.visitors
     visitors.mark = function (node) {
-      return `!!${this.all(node).join('')}!!`
+      return `==${this.all(node).join('')}==`
     }
   }
 }
